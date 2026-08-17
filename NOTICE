@@ -1,0 +1,10 @@
+This repository contains scripts and measurements for an FP8 quantization of AMALIA-9B.
+
+The model itself is the work of the AMALIA team and is published separately:
+  https://huggingface.co/amalia-llm/AMALIA-9B-0626-DPO  (Apache 2.0)
+
+The quantized artifact produced by this work:
+  https://huggingface.co/CYBERS3C/AMALIA-9B-0626-DPO-FP8  (Apache 2.0)
+
+All credit for the model belongs to the AMALIA team. This repository contributes a
+quantization and the measurements behind it, nothing more.
