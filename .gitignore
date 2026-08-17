@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# large artifacts: the model lives on the Hugging Face Hub, not here
+*.safetensors
+*.gguf
+*.bin
+
+*.log
+
+# working material kept outside the repository
+local/

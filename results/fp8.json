@@ -1,0 +1,87 @@
+{
+  "summary": {
+    "model": "amalia",
+    "url": "http://spark:8000/v1/chat/completions",
+    "markers_pt": 7,
+    "markers_br": 0,
+    "gerund_pt": 3,
+    "gerund_br": 0,
+    "tokens_total": 1234.0,
+    "seconds_total": 55.4,
+    "tokens_per_s": 22.3
+  },
+  "answers": {
+    "transport": {
+      "prompt": "Descreve em duas frases uma viagem de Lisboa ao Porto de transporte ferroviario.",
+      "answer": "A viagem de Lisboa ao Porto de comboio é uma experiência agradável e eficiente, com a maioria dos comboios a demorar entre 3 a 3,5 horas. A paisagem ao longo da Linha do Norte oferece vistas deslumbrantes do rio Tejo, campos verdejantes e vinhas, tornando a viagem em si uma parte memorável da viagem.",
+      "tokens": 79,
+      "seconds": 3.68
+    },
+    "house": {
+      "prompt": "Estou num hotel e preciso de indicar onde fica a divisao com o duche. Escreve duas frases.",
+      "answer": "A divisão com o duche fica no corredor, à direita, logo após a porta do seu quarto. Pode encontrá-la seguindo as indicações para as casas de banho partilhadas.",
+      "tokens": 40,
+      "seconds": 1.88
+    },
+    "mobile": {
+      "prompt": "Escreve duas frases sobre como as pessoas usam o telefone portatil no dia a dia.",
+      "answer": "As pessoas usam os telemóveis para comunicar com amigos e familiares através de chamadas, mensagens de texto e aplicações de redes sociais. Também os utilizam para aceder a informações, navegar na internet, tirar fotografias e gerir tarefas diárias como agendar compromissos e fazer pagamentos.",
+      "tokens": 63,
+      "seconds": 2.89
+    },
+    "gerund": {
+      "prompt": "Descreve o que estas a fazer neste momento, em duas frases.",
+      "answer": "Estou a processar a sua pergunta e a gerar uma resposta com base na informação fornecida. Neste momento, estou a analisar o seu pedido para fornecer uma descrição concisa do que estou a fazer.",
+      "tokens": 44,
+      "seconds": 2.04
+    },
+    "breakfast": {
+      "prompt": "Descreve a primeira refeicao do dia em Portugal, em duas frases.",
+      "answer": "Em Portugal, a primeira refeição do dia, frequentemente consumida entre as 7h e as 9h, é tipicamente um pequeno-almoço simples e reconfortante. Este inclui frequentemente pão fresco com manteiga ou compota, queijo, fiambre, fruta fresca e, por vezes, um café ou um galão.",
+      "tokens": 72,
+      "seconds": 3.25
+    },
+    "bus": {
+      "prompt": "Explica em duas frases como se apanha transporte publico rodoviario numa cidade.",
+      "answer": "Para apanhar transporte público rodoviário numa cidade, procura uma paragem de autocarro ou paragem de táxi designada e aguarda que o autocarro ou o táxi chegue, mostrando o teu bilhete ou cartão de transporte válido ao motorista ou ao cobrador, se necessário. Assim que embarcares, segue as instruções do motorista, utiliza o assento indicado e desembaraça-te ao chegares ao teu destino.",
+      "tokens": 96,
+      "seconds": 4.29
+    },
+    "formal_register": {
+      "prompt": "Escreve um paragrafo formal a informar um cliente de que a fatura vence a 30 dias.",
+      "answer": "Exmos. Senhores,\n\nInformamos que a fatura n.º [inserir número da fatura] vence a 30 dias a contar da data da sua emissão, conforme estipulado nos termos e condições acordados. Solicitamos que procedam ao pagamento integral dentro deste prazo para evitar quaisquer atrasos ou potenciais custos associados. A não observância do prazo de pagamento poderá resultar na suspensão de determinados serviços ou na aplicação de juros de mora, conforme previsto na legislação em vigor. Agradeçemos a vossa colaboração e o vosso compromisso contínuo com a nossa parceria.",
+      "tokens": 129,
+      "seconds": 5.73
+    },
+    "history": {
+      "prompt": "Quem foi Luis de Camoes e porque e importante? Responde em tres frases.",
+      "answer": "Luís de Camões foi um dos maiores poetas da língua portuguesa, autor de *Os Lusíadas*, um épico nacional que celebra a história e os feitos dos portugueses durante a Era dos Descobrimentos. É importante porque a sua obra marcou a identidade cultural de Portugal e elevou o português a uma língua de cultura e literatura universal. A sua escrita influenciou gerações de escritores e continua a ser estudada e admirada em todo o mundo.",
+      "tokens": 94,
+      "seconds": 4.21
+    },
+    "geography": {
+      "prompt": "Quais sao os arquipelagos portugueses e onde ficam? Responde em duas frases.",
+      "answer": "Os arquipélagos portugueses são os Açores e a Madeira, situados no Oceano Atlântico. Os Açores estão localizados a oeste de Portugal continental, enquanto a Madeira fica mais a sul, perto do Estreito de Gibraltar.",
+      "tokens": 50,
+      "seconds": 2.3
+    },
+    "technical": {
+      "prompt": "Explica em tres frases o que e uma vulnerabilidade de path traversal.",
+      "answer": "Uma vulnerabilidade de path traversal ocorre quando um sistema permite que um utilizador aceda a ficheiros ou diretórios fora do caminho pretendido, explorando entradas inseguras. Isto acontece tipicamente quando um programa lê caminhos de ficheiros a partir de dados fornecidos pelo utilizador sem validação adequada. Os atacantes podem explorar isto para aceder a ficheiros sensíveis ou executar código malicioso.",
+      "tokens": 86,
+      "seconds": 3.87
+    },
+    "reasoning": {
+      "prompt": "Se um comboio parte as 9h15 e demora 2h50, a que horas chega? Explica o calculo.",
+      "answer": "Para descobrir a que horas chega o comboio, precisamos de somar o tempo de viagem ao horário de partida.\n\n**Passo 1: Converter o tempo de viagem para minutos.**  \nO tempo de viagem é de 2 horas e 50 minutos.  \n2 horas = 2 × 60 = 120 minutos  \nPortanto, 2h50 = 120 + 50 = **170 minutos**\n\n**Passo 2: Somar o tempo de viagem ao horário de partida.**  \nPartida: 9h15  \nTempo de viagem: 170 minutos\n\nConverter 170 minutos em horas e minutos:  \n170 ÷ 60 = 2 horas e 50 minutos (o resto é 10 minutos)\n\nPortanto, 9h15 + 2h50 = **12h05**\n\n✅ **Resposta: O comboio chega às 12h05.**",
+      "tokens": 233,
+      "seconds": 10.28
+    },
+    "code": {
+      "prompt": "Escreve uma funcao Python que devolve os numeros primos ate n. So o codigo.",
+      "answer": "```python\ndef primes_up_to(n):\n    \"\"\"\n    Returns a list of prime numbers up to and including n.\n    \n    Args:\n        n (int): The upper limit (inclusive)\n    \n    Returns:\n        list: A list of prime numbers <= n\n    \"\"\"\n    if n < 2:\n        return []\n    \n    # Use Sieve of Eratosthenes algorithm\n    sieve = [True] * (n + 1)\n    sieve[0] = sieve[1] = False  # 0 and 1 are not prime\n    \n    for i in range(2, int(n**0.5) + 1):\n        if sieve[i]:\n            # Mark all multiples of i as not prime\n            for j in range(i * i, n + 1, i):\n                sieve[j] = False\n    \n    # Collect all prime numbers\n    return [i for i in range(2, n + 1) if sieve[i]]\n```",
+      "tokens": 248,
+      "seconds": 10.94
+    }
+  }
+}

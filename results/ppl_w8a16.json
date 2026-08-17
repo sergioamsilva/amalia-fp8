@@ -1,0 +1,22 @@
+{
+  "literary": {
+    "ppl": 16.254,
+    "tokens": 119
+  },
+  "administrative": {
+    "ppl": 4.8246,
+    "tokens": 92
+  },
+  "colloquial": {
+    "ppl": 10.3023,
+    "tokens": 94
+  },
+  "technical": {
+    "ppl": 18.1867,
+    "tokens": 96
+  },
+  "_global": {
+    "ppl": 11.3553,
+    "tokens": 401
+  }
+}

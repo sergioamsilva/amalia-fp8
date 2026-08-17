@@ -1,0 +1,87 @@
+{
+  "summary": {
+    "model": "amalia",
+    "url": "http://spark:8000/v1/chat/completions",
+    "markers_pt": 7,
+    "markers_br": 0,
+    "gerund_pt": 2,
+    "gerund_br": 0,
+    "tokens_total": 1201.0,
+    "seconds_total": 98.8,
+    "tokens_per_s": 12.2
+  },
+  "answers": {
+    "transport": {
+      "prompt": "Descreve em duas frases uma viagem de Lisboa ao Porto de transporte ferroviario.",
+      "answer": "A viagem de Lisboa ao Porto de comboio é uma experiência agradável, atravessando paisagens rurais e urbanas pitorescas ao longo do rio Tejo e do Douro. Dura cerca de 3 horas e 30 minutos, oferecendo vistas panorâmicas e uma forma confortável de chegar à segunda maior cidade de Portugal.",
+      "tokens": 70,
+      "seconds": 5.93
+    },
+    "house": {
+      "prompt": "Estou num hotel e preciso de indicar onde fica a divisao com o duche. Escreve duas frases.",
+      "answer": "A divisão com o duche fica no corredor, à direita após a porta do seu quarto. Pode encontrá-la facilmente seguindo as indicações para as casas de banho partilhadas.",
+      "tokens": 39,
+      "seconds": 3.27
+    },
+    "mobile": {
+      "prompt": "Escreve duas frases sobre como as pessoas usam o telefone portatil no dia a dia.",
+      "answer": "As pessoas usam o telefone portátil para comunicar com amigos e familiares através de chamadas, mensagens de texto e aplicações de redes sociais. Também o utilizam para aceder a informações, navegar na internet, tirar fotografias e gerir tarefas diárias como agendar compromissos e fazer pagamentos.",
+      "tokens": 62,
+      "seconds": 5.13
+    },
+    "gerund": {
+      "prompt": "Descreve o que estas a fazer neste momento, em duas frases.",
+      "answer": "Estou a processar a sua pergunta e a gerar uma resposta clara e concisa em duas frases. Neste momento, estou a analisar o contexto e a fornecer uma resposta útil e relevante.",
+      "tokens": 40,
+      "seconds": 3.35
+    },
+    "breakfast": {
+      "prompt": "Descreve a primeira refeicao do dia em Portugal, em duas frases.",
+      "answer": "Em Portugal, a primeira refeição do dia, frequentemente consumida entre as 7h e as 9h, é tipicamente uma refeição substancial que inclui pão, queijo, enchidos, fruta fresca e, por vezes, compota ou marmelada. Muitas famílias também apreciam café ou chá para acompanhar a refeição, especialmente em zonas rurais onde a tradição de um pequeno-almoço robusto é mais forte.",
+      "tokens": 90,
+      "seconds": 7.39
+    },
+    "bus": {
+      "prompt": "Explica em duas frases como se apanha transporte publico rodoviario numa cidade.",
+      "answer": "Para apanhar transporte público rodoviário numa cidade, procura uma paragem de autocarro ou paragem de táxi designada e verifica o horário do autocarro no painel ou através de uma aplicação. Depois, espera que o autocarro chegue, mostra o teu bilhete (se necessário) e entra pelo corredor designado, encontrando um lugar para te sentares ou ficando de pé.",
+      "tokens": 82,
+      "seconds": 6.77
+    },
+    "formal_register": {
+      "prompt": "Escreve um paragrafo formal a informar um cliente de que a fatura vence a 30 dias.",
+      "answer": "Exmo(a). Senhor(a),\n\nInformamos que a fatura n.º [Número da Fatura] vence a 30 dias a contar da data da presente, conforme estipulado nos termos e condições acordados. Solicitamos que o pagamento integral seja efetuado até à data de vencimento para garantir a continuidade dos nossos serviços e evitar quaisquer atrasos ou penalizações. Agradecemos a sua atenção e colaboração.\n\nAtentamente,  \n[O seu Nome]  \n[O seu Cargo]  \n[Nome da Empresa]",
+      "tokens": 127,
+      "seconds": 10.39
+    },
+    "history": {
+      "prompt": "Quem foi Luis de Camoes e porque e importante? Responde em tres frases.",
+      "answer": "Luís de Camões foi um poeta português do século XVI, autor de *Os Lusíadas*, uma epopeia nacional que celebra os feitos dos portugueses durante a Era dos Descobrimentos. É considerado um dos maiores poetas da língua portuguesa e um símbolo da identidade cultural de Portugal. A sua obra é importante por valorizar a história, a língua e o espírito de aventura do povo português.",
+      "tokens": 82,
+      "seconds": 6.76
+    },
+    "geography": {
+      "prompt": "Quais sao os arquipelagos portugueses e onde ficam? Responde em duas frases.",
+      "answer": "Os arquipélagos portugueses são os Açores e a Madeira, situados no Oceano Atlântico. Os Açores estão localizados a oeste da Península Ibérica, enquanto a Madeira fica mais a sul, a oeste de Marrocos.",
+      "tokens": 50,
+      "seconds": 4.17
+    },
+    "technical": {
+      "prompt": "Explica em tres frases o que e uma vulnerabilidade de path traversal.",
+      "answer": "Uma vulnerabilidade de path traversal ocorre quando um sistema permite que um utilizador aceda a ficheiros ou diretórios fora do caminho intencionalmente definido, explorando a funcionalidade de caminhos de ficheiros. Isto acontece tipicamente quando um programa lê ficheiros utilizando caminhos fornecidos pelo utilizador sem validação adequada. Os atacantes podem explorar isto para aceder a ficheiros sensíveis, como ficheiros de configuração ou dados do sistema, comprometendo a segurança do sistema.",
+      "tokens": 102,
+      "seconds": 8.38
+    },
+    "reasoning": {
+      "prompt": "Se um comboio parte as 9h15 e demora 2h50, a que horas chega? Explica o calculo.",
+      "answer": "Para descobrir a que horas o comboio chega, precisamos de somar a duração da viagem à hora de partida.\n\n**Passo 1: Identificar a hora de partida e a duração da viagem.**  \n- Hora de partida: **9h15**  \n- Duração da viagem: **2 horas e 50 minutos**\n\n**Passo 2: Converter a duração da viagem para horas e minutos.**  \n- 50 minutos = 50 ÷ 60 = **0 horas e 50 minutos**  \n- Portanto, a duração total é **2 horas + 0 horas e 50 minutos = 2h 50m**\n\n**Passo 3: Somar a duração da viagem à hora de partida.**  \n- 9h15 + 2 horas = **11h15**  \n- Depois, adicionar os 50 minutos:  \n  - 11h15 + 50 minutos = **12h05**\n\n**Resposta Final:**  \nO comboio chega às **12h05**.\n\n✅ **Explicação:**  \nComeçando às 9h15 e viajando durante 2 horas e 50 minutos, somamos 2 horas (chegando às 11h15) e depois adicionamos os 50 minutos restantes (chegando às 12h05).",
+      "tokens": 324,
+      "seconds": 26.35
+    },
+    "code": {
+      "prompt": "Escreve uma funcao Python que devolve os numeros primos ate n. So o codigo.",
+      "answer": "def primes_up_to(n):\n    if n < 2:\n        return []\n    sieve = [True] * (n + 1)\n    sieve[0] = sieve[1] = False\n    for i in range(2, int(n ** 0.5) + 1):\n        if sieve[i]:\n            for j in range(i * i, n + 1, i):\n                sieve[j] = False\n    return [i for i, is_prime in enumerate(sieve) if is_prime]",
+      "tokens": 133,
+      "seconds": 10.89
+    }
+  }
+}

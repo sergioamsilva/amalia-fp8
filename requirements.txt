@@ -1,0 +1,10 @@
+# Evaluation scripts (evaluate.py, perplexity.py, compare.py, validate.py) use only the
+# Python standard library. Nothing to install.
+
+# Quantization (quantize_fp8.py, quantize_fp8_weights_only.py) runs inside the vLLM
+# container, which already provides torch and transformers built for the platform.
+llmcompressor>=0.8
+
+# Resharding (reshard.py).
+safetensors>=0.4
+torch>=2.0
