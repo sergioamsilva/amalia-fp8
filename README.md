@@ -2,10 +2,10 @@
 
 **A quantization report with the failed hypotheses left in, because those were the useful part.**
 
-I set out to make the first FP8 quantization of AMALIA-9B, the European Portuguese language
-model, so it could be served on a GPU instead of only on Macs. Along the way I tested an
-assumption I would have bet money on: that quantizing **only the weights** and leaving
-activations in BF16 would be gentler than quantizing both.
+I needed AMALIA-9B, the European Portuguese language model, to run fast on an NVIDIA DGX
+Spark, served by vLLM. Nothing existed in a format that stack serves natively, so I made one.
+Along the way I tested an assumption I would have bet money on: that quantizing **only the
+weights** and leaving activations in BF16 would be gentler than quantizing both.
 
 It was twice as bad. And the config files prove the weights came out byte-identical in both
 cases, which means the entire difference lives in the compute path, not in the numbers on
@@ -134,24 +134,51 @@ latter is visibly foreign to the former. *Comboio* vs *trem*, *casa de banho* vs
 Portuguese readers notice within one sentence, roughly the way an English reader notices
 "gotten" in a British contract.
 
-At the time of the survey it existed in 85 repositories on the Hub. Fifteen GGUF for
-llama.cpp. Fifteen MLX for Apple Silicon. Three ONNX, and those only for the speech models.
+### 2.2 What I actually needed
 
-**Zero in FP8.** Zero in NVFP4, AWQ, GPTQ or compressed-tensors.
+The target was specific: run AMALIA well on an **NVIDIA DGX Spark**, alongside another model,
+served by vLLM, which is the stack already running on that box.
 
-There are two bitsandbytes 4-bit repositories (`AMALIA-9B-0626-{DPO,SFT}-bnb`) which I
-missed on the first pass and which forced a correction to this document. They are
-`quant_type: fp4` with `compute_dtype: float32`, filed inside subdirectories that do not
-load by repo id, with zero downloads each, and `bitsandbytes` is not among the quantization
-methods the vLLM build used here supports.
+That constraint does most of the work here. The GB10 reads memory at roughly 273 GB/s, and on
+this machine that number, not compute, decides everything. Measured on the unquantized model:
+**12.2 tok/s**. Reading 18 GB of weights per token is the entire cost model, which is why a 9B
+at BF16 runs slower here than a well-quantized 27B.
 
-The defensible statement: **no vLLM-servable quantization of AMALIA existed.**
+So the question was never "does a way to run AMALIA exist". It was "what runs it fast on this
+hardware, in this stack, without damaging the Portuguese".
 
-*(Footnote added after publishing: the survey found 85 repositories and zero in FP8. There
-are now 86, and one in FP8. The number this document argues from was changed by this
-document, which feels like cheating but is at least honest cheating.)*
+What existed at the time of the survey, across 85 repositories on the Hub: fifteen GGUF for
+llama.cpp, fifteen MLX for Apple Silicon, three ONNX for the speech models, and two
+bitsandbytes 4-bit repos filed in subdirectories with zero downloads each.
 
-### 2.2 Why FP8 and not NVFP4
+**Zero in FP8, NVFP4, AWQ, GPTQ or compressed-tensors**, which are the formats vLLM serves
+natively. GGUF can be served by vLLM through the official out-of-tree
+[vllm-gguf-plugin](https://github.com/vllm-project/vllm-gguf-plugin), whose own documentation
+opens by calling it "highly experimental and under-optimized" and positions it as a way to
+reduce memory footprint rather than to serve fast.
+
+### A note on how this claim shrank
+
+Earlier drafts of this document said, in order: that no GPU quantization of AMALIA existed
+(false, the bitsandbytes ones do), then that none was vLLM-servable (also false, the GGUF
+plugin serves them). Two readers were right and I was wrong twice about the same sentence.
+
+The pattern is more instructive than either correction. I wanted the gap to be bigger than it
+was, and the sentence kept doing work the evidence would not support. The narrow version above
+is what survives scrutiny, and the result does not need more than that: an FP8 artifact that is
+native to the serving stack, with measured degradation, is useful whether or not alternatives
+existed.
+
+**What I have not measured**, and should: llama.cpp with a GGUF of AMALIA on this same box,
+same prompts, same perplexity harness. `llama-server` has both an OpenAI-compatible API and
+continuous batching (`-cb`, `-np`). Until that comparison exists, no claim of superiority over
+it belongs in this document.
+
+*(Footnote: the survey found 85 repositories. There are now 86, one of them in FP8. The number
+this document argues from was changed by this document, which feels like cheating but is at
+least honest cheating.)*
+
+### 2.3 Why FP8 and not NVFP4
 
 NVFP4 is the native 4-bit format on Blackwell and would have produced a tidy 5.5 GB
 artifact. It was the wrong choice, for a reason you only notice when the model speaks one
@@ -174,7 +201,7 @@ than through me being careful, and structural beats careful every single time.
 | **FP8** | **9.6 GB** | negligible | **none** |
 | NVFP4 | ~5.5 GB | real on a 9B | yes, and it would have to be in Portuguese |
 
-### 2.3 Execution
+### 2.4 Execution
 
 ```
 load model in bf16:   ~107s
